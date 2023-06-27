@@ -7,9 +7,7 @@ function sameFrequency(inp1, inp2) {
             return false
         }
     }
-
     return true
-
 }
 
 function ints_to_obj(int) {
