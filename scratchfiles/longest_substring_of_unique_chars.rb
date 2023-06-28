@@ -5,6 +5,7 @@ def longest_substring_of_uniq_chars(str)
   arr = str.split("")
   max_count = 1
   current_count = 1
+  # pointers within array using indexes
   left = 0
   right = 1
 
@@ -13,22 +14,20 @@ def longest_substring_of_uniq_chars(str)
       current_count += 1
       left += 1
     else
-      if current_count > max_count 
-        max_count = current_count
-      end
       current_count = 1
       left = right
     end
-    right += 1
-  end
 
-  # todo, clean up - catch edge case where last count doesn't get caught by else statement
-  max_count = current_count > max_count ? current_count : max_count
+    right += 1
+    max_count = current_count if current_count > max_count
+  end
 
   max_count
 end
 
-p longest_substring_of_uniq_chars("hello")
+# space complexity of O(n) (arr variable)
+# time complexity of O(n)
+p longest_substring_of_uniq_chars("hello") # 3
 p longest_substring_of_uniq_chars("what do I have to do") # 21
 p longest_substring_of_uniq_chars("welll          ?") # 3
-p longest_substring_of_uniq_chars("well would you look at that") # 14
+p longest_substring_of_uniq_chars("well would you look at that") # 14, breaks at 'oo'
