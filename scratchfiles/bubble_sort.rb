@@ -39,6 +39,9 @@ def bubble_sort(arr, type = nil)
   arr
 end
 
+# time complexity of O(n * log n)
+# space complexity of O(1)
+
 
 p bubble_sort([1,2,3, 8, 6, 2, 4,5],  :asc)
 p bubble_sort([1,2,3, 8, 6, 2, 4, 5, 25, 34, 3, 8, 10,  17, 85, 1, 4, 9, 9, 32], :desc)
