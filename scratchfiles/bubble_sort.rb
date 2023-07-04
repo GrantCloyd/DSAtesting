@@ -39,7 +39,7 @@ def bubble_sort(arr, type = nil)
   arr
 end
 
-# time complexity of O(n * log n)
+# time complexity of O(n * n) in worst case scenario 
 # space complexity of O(1)
 
 
