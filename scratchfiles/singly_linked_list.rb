@@ -27,13 +27,35 @@ class SinglyLinkedList
 
     node
   end
+  
+  def insert_at(val:, index:)
+    return 'error, index must be an integer' unless index.is_a? Integer
+    return 'error, index must be greater than or equal to 0' unless index >= 0
+
+    current_index = 0
+    last_node = nil
+    current_node = @head
+    until current_index == index
+      return 'error, cannot insert at location' if current_node.nil? 
+      last_node = current_node
+      current_node = current_node.next_node 
+      current_index += 1
+    end
+
+    new_node = create_node(val)
+    if current_index == 0 
+      @head = new_node
+    else
+      last_node.next_node = new_node
+    end
+    
+    new_node.next_node = current_node
+
+    p values_in_order
+  end
 
   def print_list_in_order
     values_in_order.each{|val|  p val }
-  end
-
-  def array_of_values
-    values_in_order
   end
 
   def reverse_list_order
@@ -91,11 +113,18 @@ list.create_and_add_node_to_end(val: 8)
 list.create_and_add_node_to_end(val: 24)
 
 list.print_list_in_order
-p list.array_of_values
+p list.send(:values_in_order)
 list.reverse_list_order
-p list.array_of_values
+p list.send(:values_in_order)
 list.print_list_in_order
 p list.pop_first_node
 list.print_list_in_order
+p list.insert_at(val: 3, index: 'w')
+p list.insert_at(val: 3, index: -1)
+list.insert_at(val: 3, index: 3) 
+list.insert_at(val: 80, index: 0)
+list.insert_at(val: "words are fine too", index: 2)
+p list.insert_at(val: 85, index: 30)
+
 
 
