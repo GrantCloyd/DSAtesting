@@ -1,4 +1,4 @@
-class SingleLinkedList
+class SinglyLinkedList
   attr_accessor :head 
 
   def initialize(head: nil)
@@ -17,6 +17,15 @@ class SingleLinkedList
       end
       current_node.next_node = new_node
     end  
+  end
+
+  def pop_first_node
+    return nil if head.nil?
+    node = @head
+    @head = @head.next_node
+    node.next_node = nil
+
+    node
   end
 
   def print_list_in_order
@@ -74,7 +83,7 @@ class Node
   end
 end
 
-list = SingleLinkedList.new
+list = SinglyLinkedList.new
 list.print_list_in_order
 list.create_and_add_node_to_end(val: 45)
 list.create_and_add_node_to_end(val: 2)
@@ -85,6 +94,8 @@ list.print_list_in_order
 p list.array_of_values
 list.reverse_list_order
 p list.array_of_values
+list.print_list_in_order
+p list.pop_first_node
 list.print_list_in_order
 
 
