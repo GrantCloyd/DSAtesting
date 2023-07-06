@@ -59,6 +59,8 @@ class SinglyLinkedList
   end
 
   def reverse_list_order
+    # regens list; would be better to simply swap rather than waste the memory
+    # until ruby auto collect takes care of it
     return nil if @head.nil?
     prev_node = nil
 
@@ -105,26 +107,7 @@ class Node
   end
 end
 
-list = SinglyLinkedList.new
-list.print_list_in_order
-list.create_and_add_node_to_end(val: 45)
-list.create_and_add_node_to_end(val: 2)
-list.create_and_add_node_to_end(val: 8)
-list.create_and_add_node_to_end(val: 24)
-
-list.print_list_in_order
-p list.send(:values_in_order)
-list.reverse_list_order
-p list.send(:values_in_order)
-list.print_list_in_order
-p list.pop_first_node
-list.print_list_in_order
-p list.insert_at(val: 3, index: 'w')
-p list.insert_at(val: 3, index: -1)
-list.insert_at(val: 3, index: 3) 
-list.insert_at(val: 80, index: 0)
-list.insert_at(val: "words are fine too", index: 2)
-p list.insert_at(val: 85, index: 30)
+# see test/singly_linked_list.rb for read out
 
 
 
