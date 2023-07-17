@@ -108,6 +108,3 @@ class Node
 end
 
 # see test/singly_linked_list.rb for read out
-
-
-
