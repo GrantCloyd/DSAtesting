@@ -11,13 +11,14 @@ class QueueTemp
   def enqueue(val)
     new_node = create_node(val)
     
-    @first = new_node && @last = new_node if @first.nil?
-
-    temp = @last
-    temp.next_node = new_node
-    @last = new_node
+    if @first.nil?
+      @first = new_node && @last = new_node
+    else 
+      temp = @last
+      temp.next_node = new_node
+      @last = new_node
+    end
     @size += 1 
-
   end
 
   def dequeue

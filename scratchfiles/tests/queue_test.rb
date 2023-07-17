@@ -2,6 +2,7 @@ require_relative '../queue.rb'
 
 q = QueueTemp.new
 p q.enqueue(6) # 1 
+p q
 p q.enqueue(10) # 2 
 p q.enqueue(13) # 3
 p q
