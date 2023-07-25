@@ -54,3 +54,15 @@ p bs_tree.find(8)
 
 puts "\n\n *** does 23 exist? ***"
 p bs_tree.find(23)
+
+puts ("\n\n *** bfs ***")
+p bs_tree.breadth_first_search
+
+puts ("\n\n *** dfs preorder ***")
+p bs_tree.depth_first_search_preorder
+
+puts ("\n\n *** dfs postorder ***")
+p bs_tree.depth_first_search_postorder
+
+puts ("\n\n *** dfs inorder ***")
+p bs_tree.depth_first_search_inorder

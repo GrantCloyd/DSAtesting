@@ -62,7 +62,66 @@ class BinarySearchTree
     end
   end
 
+  def breadth_first_search
+    return nil if @root.nil?
+    queue = []
+    visited = []
+
+    queue << @root
+
+    while !queue.empty?
+      node = queue.shift
+      if node.left
+        queue << node.left
+      end
+      if node.right
+        queue << node.right
+      end
+      visited << node.value
+    end
+    visited
+  end
+
+  def depth_first_search_preorder
+    return nil if @root.nil?
+    visited = []
+    
+    dfs_helper(@root, visited, :pre)
+    
+    visited
+  end
+
+  def depth_first_search_postorder
+    return nil if @root.nil?
+    visited = []
+    
+    dfs_helper(@root, visited, :post)
+    
+    visited
+  end
+
+  def depth_first_search_inorder
+    return nil if @root.nil?
+    visited = []
+    
+    dfs_helper(@root, visited, :in)
+    
+    visited
+  end
+
   private
+
+  def dfs_helper(node, arr, type)
+    arr << node.value if type == :pre
+    if (node.left)
+      dfs_helper(node.left, arr, type)
+    end
+    arr << node.value if type == :in
+    if (node.right)
+      dfs_helper(node.right, arr, type)
+    end
+    arr << node.value if type == :post
+  end
 
   def create_node(value, left = nil, right = nil)
     Node.new(value, left, right)
