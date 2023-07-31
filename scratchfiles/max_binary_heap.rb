@@ -68,7 +68,6 @@ end
 mbh = MaxBinaryHeap.new
 mbh.add(10)
 mbh.add(15)
-mbh.add(80)
 mbh.add(900)
 mbh.add(8000)
 mbh.add(6000)
